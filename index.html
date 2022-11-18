@@ -10,6 +10,8 @@
     <title>Pedrin</title>
 </head>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async defer></script>
+
 <body>
 
     <!-- CABEÇALHO-->
@@ -137,12 +139,24 @@
                         <textarea name="message" id="" cols="0" rows="10" placeholder="Digite sua mensagem"
                             class="contato__input" required></textarea>
                         <div class="contato__buttons">
+                            <div class="cf-turnstile" data-sitekey="0x4AAAAAAAA4F_nSUQE5gii3"></div>
                             <input type="submit" value="Enviar" class="button button--border" />
                             <input type="reset" value="Limpar" class="button button--border" />
                         </div>
-
+                        <script>
+                            // This function is called when the Turnstile script is loaded and ready to be used.
+                            // The function name matches the "onload=..." parameter.
+                            function _turnstileCb() {
+                                console.debug('_turnstileCb called');
+                            
+                                turnstile.render('#myWidget', {
+                                  sitekey: '1x00000000000000000000AA',
+                                  theme: 'light',
+                                });
+                            }
+                        </script>
                         <input type="hidden" name="accessKey" value="1ffff98d-4028-40f2-b83c-963d592c5179">
-                        <input type="hidden" name="redirectTo" value="https://alurapedrin.fun/pages/obrigado.html">
+                        <input type="hidden" name="redirectTo" value="https://pedrin268.dev/pages/obrigado.html">
                     </form>
                 </div>
 
